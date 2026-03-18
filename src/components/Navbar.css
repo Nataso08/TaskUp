@@ -1,5 +1,5 @@
 .navbar {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #245c27 0%, #2f7d32 65%, #5f7a39 100%);
   padding: 1rem 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: sticky;
@@ -36,6 +36,8 @@
 }
 
 .nav-button {
+  border: none;
+  background: transparent;
   color: white;
   text-decoration: none;
   font-size: 1rem;
@@ -55,6 +57,74 @@
   background-color: rgba(255, 255, 255, 0.3);
 }
 
+.signin-button {
+  background-color: #f4ffe7;
+  color: #245c27;
+  font-weight: 700;
+}
+
+.signin-button:hover {
+  background-color: #e3f5d0;
+  transform: translateY(-2px);
+}
+
+.profile-menu {
+  position: relative;
+}
+
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: none;
+  background-color: #f4ffe7;
+  color: #245c27;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.profile-avatar:hover {
+  transform: translateY(-2px);
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  min-width: 170px;
+  padding: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  z-index: 150;
+}
+
+.profile-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  color: #245c27;
+  border-radius: 0.5rem;
+  padding: 0.55rem 0.65rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.profile-option:hover {
+  background-color: #eef9e7;
+}
+
+.logout-option {
+  color: #8b2f2f;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .navbar-container {
@@ -67,6 +137,11 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.5rem;
+  }
+
+  .profile-dropdown {
+    right: 50%;
+    transform: translateX(50%);
   }
 
   .nav-button {

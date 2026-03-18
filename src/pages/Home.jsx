@@ -1,6 +1,6 @@
+import { Link } from 'react-router-dom';
 import './Home.css';
 
-// Componente Feature per presentare le caratteristiche
 function Feature({ icon, title, description }) {
   return (
     <div className="feature-card">
@@ -11,83 +11,62 @@ function Feature({ icon, title, description }) {
   );
 }
 
-// Componente Home principale
 function Home() {
   const features = [
     {
       id: 1,
-      icon: '📋',
-      title: 'Gestione Semplice',
-      description: 'Organizzi le tue attività con un\'interfaccia intuitiva e facile da usare.'
+      icon: '📍',
+      title: 'Nearby Opportunities',
+      description: 'Discover practical, local jobs in your area with just a few taps.'
     },
     {
       id: 2,
-      icon: '⏰',
-      title: 'Tracciamento Tempo',
-      description: 'Monitora il tempo dedicato a ogni task e analizza la tua produttività.'
+      icon: '🛠️',
+      title: 'Hands-On Tasks',
+      description: 'From gardening and yard care to quick fixes, find real-world tasks that match your skills.'
     },
     {
       id: 3,
-      icon: '👥',
-      title: 'Collaborazione',
-      description: 'Condividi progetti e collabora con il tuo team in tempo reale.'
-    },
-    {
-      id: 4,
-      icon: '📊',
-      title: 'Statistiche Dettagliate',
-      description: 'Visualizza grafici e report per migliorare la tua efficienza.'
-    },
-    {
-      id: 5,
-      icon: '🔔',
-      title: 'Notifiche Smart',
-      description: 'Ricevi notifiche intelligenti su scadenze e priorità importanti.'
-    },
-    {
-      id: 6,
-      icon: '☁️',
-      title: 'Sincronizzazione Cloud',
-      description: 'Accedi ai tuoi task da qualsiasi dispositivo, sempre sincronizzati.'
+      icon: '🤝',
+      title: 'Safe Community',
+      description: 'Build trust with profiles, reviews, and a community focused on reliability.'
     }
   ];
 
   return (
     <main className="home">
-      {/* Hero Section */}
       <section id="home" className="hero-section">
         <div className="hero-content">
-          <h1 className="hero-title">Aumenta la Tua Produttività</h1>
+          <h1 className="hero-title">Find Local Jobs. Get Things Done.</h1>
           <p className="hero-subtitle">
-            TaskUp è la soluzione completa per gestire i tuoi task, monitorare il tuo tempo e 
-            collaborare con il tuo team. Semplice, potente e intuitivo.
+            TaskUp helps young people find simple manual jobs nearby: quick gigs,
+            gardening jobs, practical tasks, and opportunities to earn while helping their local community.
           </p>
           <div className="hero-buttons">
-            <button className="btn btn-primary">Inizia Gratuitamente</button>
-            <button className="btn btn-secondary">Guarda Demo</button>
+            <Link className="btn btn-primary" to="/login">Sign In</Link>
+            <Link className="btn btn-secondary" to="/explore">Explore Jobs</Link>
           </div>
           <div className="hero-stats">
             <div className="stat">
-              <h4>10K+</h4>
-              <p>Utenti Attivi</p>
+              <h4>Fast</h4>
+              <p>Start in minutes</p>
             </div>
             <div className="stat">
-              <h4>50M+</h4>
-              <p>Task Completati</p>
+              <h4>Local</h4>
+              <p>Jobs around you</p>
             </div>
             <div className="stat">
-              <h4>99.9%</h4>
-              <p>Uptime Garantito</p>
+              <h4>Simple</h4>
+              <p>Garden & outdoor friendly</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="services" className="features-section">
+      <section id="about" className="features-section">
         <div className="section-header">
-          <h2>Le Nostre Caratteristiche</h2>
-          <p>Tutto quello che ti serve per essere più produttivo</p>
+          <h2>Why TaskUp</h2>
+          <p>A practical platform built for real, everyday outdoor and manual work.</p>
         </div>
         <div className="features-grid">
           {features.map((feature) => (
@@ -101,104 +80,49 @@ function Home() {
         </div>
       </section>
 
-      {/* Benefits Section */}
       <section className="benefits-section">
         <div className="benefits-container">
           <div className="benefits-content">
-            <h2>Perché Scegliere TaskUp?</h2>
+            <h2>How It Works</h2>
             <ul className="benefits-list">
               <li>
                 <span className="checkmark">✓</span>
                 <div>
-                  <h4>Facile da Usare</h4>
-                  <p>Non occorre training complesso. Comincia subito.</p>
+                  <h4>Sign Up</h4>
+                  <p>Create your account and set your location in a few simple steps.</p>
                 </div>
               </li>
               <li>
                 <span className="checkmark">✓</span>
                 <div>
-                  <h4>Sempre Aggiornato</h4>
-                  <p>Nuove feature aggiunte regolarmente based su esigenze reali.</p>
+                  <h4>Explore Tasks</h4>
+                  <p>Browse nearby opportunities like gardening, cleanup and small manual jobs.</p>
                 </div>
               </li>
               <li>
                 <span className="checkmark">✓</span>
                 <div>
-                  <h4>Supporto 24/7</h4>
-                  <p>Il nostro team è sempre disponibile per aiutarti.</p>
-                </div>
-              </li>
-              <li>
-                <span className="checkmark">✓</span>
-                <div>
-                  <h4>Sicurezza Garantita</h4>
-                  <p>I tuoi dati sono protetti con crittografia end-to-end.</p>
+                  <h4>Manage Everything</h4>
+                  <p>Use your dashboard to track accepted jobs and your activity.</p>
                 </div>
               </li>
             </ul>
           </div>
           <div className="benefits-image">
             <div className="image-placeholder">
-              <span>📱 TaskUp Interface</span>
+              <span>🌿 TaskUp for local gardening jobs</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className="pricing-section">
-        <div className="section-header">
-          <h2>Piani Semplici e Trasparenti</h2>
-          <p>Scegli il piano che fa per te</p>
+      <section id="explore" className="cta-section">
+        <h2>Ready to start?</h2>
+        <p>Join TaskUp and discover local opportunities today.</p>
+        <div className="hero-buttons">
+          <Link className="btn btn-large" to="/login">Sign In</Link>
+          <Link className="btn btn-secondary" to="/explore">Explore</Link>
         </div>
-        <div className="pricing-cards">
-          <div className="pricing-card">
-            <h3>Free</h3>
-            <p className="price">Gratuito</p>
-            <p className="description">Perfetto per iniziare</p>
-            <ul className="pricing-features">
-              <li>✓ Fino a 10 task</li>
-              <li>✓ 1 utente</li>
-              <li>✓ Supporto email</li>
-              <li>✗ Analitiche avanzate</li>
-            </ul>
-            <button className="btn btn-outline">Inizia</button>
-          </div>
-
-          <div className="pricing-card featured">
-            <span className="badge">Popolare</span>
-            <h3>Pro</h3>
-            <p className="price">€9<span>/mese</span></p>
-            <p className="description">Per il lavoro quotidiano</p>
-            <ul className="pricing-features">
-              <li>✓ Task illimitati</li>
-              <li>✓ Fino a 5 utenti</li>
-              <li>✓ Supporto prioritario</li>
-              <li>✓ Analitiche avanzate</li>
-            </ul>
-            <button className="btn btn-primary">Prova Gratis</button>
-          </div>
-
-          <div className="pricing-card">
-            <h3>Enterprise</h3>
-            <p className="price">Personalizzato</p>
-            <p className="description">Per team grandi</p>
-            <ul className="pricing-features">
-              <li>✓ Tutto di Pro</li>
-              <li>✓ Utenti illimitati</li>
-              <li>✓ Supporto dedicato</li>
-              <li>✓ Integrazioni custom</li>
-            </ul>
-            <button className="btn btn-outline">Contattaci</button>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="cta-section">
-        <h2>Pronto a Aumentare la Tua Produttività?</h2>
-        <p>Unisciti a migliaia di utenti che già usano TaskUp</p>
-        <button className="btn btn-large">Inizia Gratis Oggi</button>
       </section>
     </main>
   );

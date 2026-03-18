@@ -1,6 +1,6 @@
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2f7d32 0%, #4f9a4d 55%, #8b5a2b 100%);
   color: white;
   padding: 6rem 2rem;
   text-align: center;
@@ -45,11 +45,15 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-primary {
-  background-color: white;
-  color: #667eea;
+  background-color: #f4ffe7;
+  color: #2f7d32;
 }
 
 .btn-primary:hover {
@@ -64,27 +68,27 @@
 }
 
 .btn-secondary:hover {
-  background-color: white;
-  color: #667eea;
+  background-color: #f4ffe7;
+  color: #2f7d32;
   transform: translateY(-2px);
 }
 
 .btn-outline {
   background-color: transparent;
-  color: #667eea;
-  border: 2px solid #667eea;
+  color: #2f7d32;
+  border: 2px solid #2f7d32;
 }
 
 .btn-outline:hover {
-  background-color: #667eea;
+  background-color: #2f7d32;
   color: white;
 }
 
 .btn-large {
   padding: 1rem 3rem;
   font-size: 1.1rem;
-  background-color: white;
-  color: #667eea;
+  background-color: #f4ffe7;
+  color: #2f7d32;
 }
 
 .btn-large:hover {
@@ -118,7 +122,7 @@
 /* Features Section */
 .features-section {
   padding: 5rem 2rem;
-  background-color: #f8f9fa;
+  background-color: #f3f8ee;
 }
 
 .section-header {
@@ -159,7 +163,7 @@
 
 .feature-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
+  box-shadow: 0 8px 24px rgba(47, 125, 50, 0.2);
 }
 
 .feature-icon {
@@ -214,7 +218,7 @@
 }
 
 .checkmark {
-  color: #667eea;
+  color: #2f7d32;
   font-size: 1.5rem;
   font-weight: bold;
   flex-shrink: 0;
@@ -237,7 +241,7 @@
 }
 
 .image-placeholder {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2f7d32 0%, #5fa65e 60%, #8b5a2b 100%);
   width: 100%;
   aspect-ratio: 1;
   border-radius: 1rem;
@@ -344,7 +348,7 @@
 
 /* CTA Section */
 .cta-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2f7d32 0%, #4f9a4d 55%, #8b5a2b 100%);
   color: white;
   padding: 4rem 2rem;
   text-align: center;
@@ -359,6 +363,10 @@
   font-size: 1.2rem;
   margin-bottom: 2rem;
   opacity: 0.95;
+}
+
+.cta-section .hero-buttons {
+  margin-bottom: 0;
 }
 
 /* Responsive Design */

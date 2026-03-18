@@ -61,17 +61,25 @@ function Footer() {
 
           <FooterSection title="Follow Us">
             <div className="social-links">
-              <a href="https://github.com" className="social-icon" target="_blank" rel="noopener noreferrer">
-                GitHub
+              <a href="https://github.com" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <svg role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#github-icon"></use>
+                </svg>
               </a>
-              <a href="https://twitter.com" className="social-icon" target="_blank" rel="noopener noreferrer">
-                Twitter
+              <a href="https://x.com" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="X">
+                <svg role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#x-icon"></use>
+                </svg>
               </a>
-              <a href="https://linkedin.com" className="social-icon" target="_blank" rel="noopener noreferrer">
-                LinkedIn
+              <a href="https://discord.com" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                <svg role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#discord-icon"></use>
+                </svg>
               </a>
-              <a href="https://discord.com" className="social-icon" target="_blank" rel="noopener noreferrer">
-                Discord
+              <a href="https://bsky.app" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">
+                <svg role="presentation" aria-hidden="true">
+                  <use href="/icons.svg#bluesky-icon"></use>
+                </svg>
               </a>
             </div>
           </FooterSection>

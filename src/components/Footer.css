@@ -1,9 +1,9 @@
 .footer {
-  background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
-  color: #e0e0e0;
+  background: linear-gradient(135deg, #1d3a1f 0%, #2a4f2e 60%, #4a3a22 100%);
+  color: #e9f3e5;
   padding: 4rem 0 2rem;
   margin-top: 4rem;
-  border-top: 1px solid rgba(102, 126, 234, 0.2);
+  border-top: 1px solid rgba(143, 188, 126, 0.35);
 }
 
 .footer-container {
@@ -20,7 +20,7 @@
 }
 
 .footer-section h3 {
-  color: #667eea;
+  color: #b7e08a;
   font-size: 1.1rem;
   margin-bottom: 1rem;
   font-weight: 600;
@@ -37,14 +37,14 @@
 }
 
 .footer-link {
-  color: #b8b8d0;
+  color: #cde2c4;
   text-decoration: none;
   font-size: 0.95rem;
   transition: all 0.3s ease;
 }
 
 .footer-link:hover {
-  color: #667eea;
+  color: #b7e08a;
   padding-left: 0.5rem;
 }
 
@@ -60,24 +60,34 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: rgba(102, 126, 234, 0.2);
-  color: #667eea;
+  background-color: rgba(183, 224, 138, 0.15);
+  color: #b7e08a;
   border-radius: 50%;
   text-decoration: none;
   font-size: 0.8rem;
   transition: all 0.3s ease;
-  border: 1px solid rgba(102, 126, 234, 0.3);
+  border: 1px solid rgba(183, 224, 138, 0.35);
+}
+
+.social-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.social-icon svg path {
+  fill: currentColor;
+  stroke: currentColor;
 }
 
 .social-icon:hover {
-  background-color: #667eea;
-  color: white;
+  background-color: #b7e08a;
+  color: #1d3a1f;
   transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 12px rgba(183, 224, 138, 0.4);
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(102, 126, 234, 0.2);
+  border-top: 1px solid rgba(143, 188, 126, 0.35);
   padding-top: 2rem;
   display: flex;
   justify-content: space-between;
@@ -89,7 +99,7 @@
 .footer-copyright,
 .footer-credits {
   font-size: 0.9rem;
-  color: #9090a8;
+  color: #a8c29e;
 }
 
 .footer-copyright p,
