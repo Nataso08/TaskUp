@@ -1,18 +1,22 @@
 import './Footer.css';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-// Componente FooterLink per i link del footer
-function FooterLink({ label, href }) {
+function FooterLink({ label, href, onNavigate }) {
   return (
-    <a href={href} className="footer-link">
+    <a
+      href={href}
+      className="footer-link"
+      onClick={(event) => onNavigate(event, href)}
+    >
       {label}
     </a>
   );
 }
 
 // Componente FooterSection per le sezioni del footer
-function FooterSection({ title, children }) {
+function FooterSection({ title, children, className = '' }) {
   return (
-    <div className="footer-section">
+    <div className={`footer-section ${className}`.trim()}>
       <h3>{title}</h3>
       {children}
     </div>
@@ -22,64 +26,80 @@ function FooterSection({ title, children }) {
 // Componente Footer principale
 function Footer() {
   const currentYear = new Date().getFullYear();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavigate = (event, href) => {
+    event.preventDefault();
+
+    if (href.startsWith('#')) {
+      if (location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => {
+          const element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 0);
+        return;
+      }
+
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      return;
+    }
+
+    navigate(href);
+  };
 
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-content">
-          <FooterSection title="About">
+          <FooterSection title="Platform">
             <ul>
-              <li><FooterLink label="About Us" href="#about" /></li>
-              <li><FooterLink label="Our Team" href="#team" /></li>
-              <li><FooterLink label="Careers" href="#careers" /></li>
+              <li><FooterLink label="Why TaskUp" href="#about" onNavigate={handleNavigate} /></li>
+              <li><FooterLink label="How It Works" href="#how-it-works" onNavigate={handleNavigate} /></li>
+              <li><FooterLink label="Explore Workers" href="/explore" onNavigate={handleNavigate} /></li>
             </ul>
           </FooterSection>
 
-          <FooterSection title="Services">
+          <FooterSection title="Young Workers">
             <ul>
-              <li><FooterLink label="Product" href="#product" /></li>
-              <li><FooterLink label="Pricing" href="#pricing" /></li>
-              <li><FooterLink label="Documentation" href="#docs" /></li>
+              <li><FooterLink label="Sign In" href="/login" onNavigate={handleNavigate} /></li>
+              <li><FooterLink label="Create Your Profile" href="/profile" onNavigate={handleNavigate} /></li>
+              <li><FooterLink label="Publish Your Skills" href="#how-it-works" onNavigate={handleNavigate} /></li>
             </ul>
           </FooterSection>
 
-          <FooterSection title="Support">
+          <FooterSection title="Clients">
             <ul>
-              <li><FooterLink label="Help Center" href="#help" /></li>
-              <li><FooterLink label="Contact Us" href="#contact" /></li>
-              <li><FooterLink label="FAQ" href="#faq" /></li>
+              <li><FooterLink label="Login" href="/login" onNavigate={handleNavigate} /></li>
+              <li><FooterLink label="Find Workers" href="/explore" onNavigate={handleNavigate} /></li>
+              <li><FooterLink label="Contact For Work" href="#how-it-works" onNavigate={handleNavigate} /></li>
             </ul>
           </FooterSection>
 
-          <FooterSection title="Legal">
+          <FooterSection title="Account">
             <ul>
-              <li><FooterLink label="Privacy Policy" href="#privacy" /></li>
-              <li><FooterLink label="Terms of Service" href="#terms" /></li>
-              <li><FooterLink label="Cookie Policy" href="#cookies" /></li>
+              <li><FooterLink label="Dashboard" href="/dashboard" onNavigate={handleNavigate} /></li>
+              <li><FooterLink label="Profile" href="/profile" onNavigate={handleNavigate} /></li>
+              <li><FooterLink label="Back to Home" href="#home" onNavigate={handleNavigate} /></li>
             </ul>
           </FooterSection>
 
-          <FooterSection title="Follow Us">
+          <FooterSection title="Follow Us" className="follow-section">
             <div className="social-links">
               <a href="https://github.com" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <svg role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
+                <img className="social-icon-img" src="https://cdn.simpleicons.org/github/1d3a1f" alt="GitHub" />
               </a>
               <a href="https://x.com" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="X">
-                <svg role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
+                <img className="social-icon-img" src="https://cdn.simpleicons.org/x/1d3a1f" alt="X" />
               </a>
-              <a href="https://discord.com" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-                <svg role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-              </a>
-              <a href="https://bsky.app" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">
-                <svg role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
+              <a href="https://instagram.com" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <img className="social-icon-img" src="https://cdn.simpleicons.org/instagram/1d3a1f" alt="Instagram" />
               </a>
             </div>
           </FooterSection>
@@ -90,7 +110,7 @@ function Footer() {
             <p>&copy; {currentYear} TaskUp. All rights reserved.</p>
           </div>
           <div className="footer-credits">
-            <p>Made with <span className="heart">♡</span> by TaskUp Team</p>
+            <p>Built with <span className="heart">♡</span> for young workers and local clients</p>
           </div>
         </div>
       </div>

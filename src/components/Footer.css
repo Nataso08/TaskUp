@@ -54,6 +54,14 @@
   flex-wrap: wrap;
 }
 
+.follow-section {
+  text-align: center;
+}
+
+.follow-section .social-links {
+  justify-content: center;
+}
+
 .social-icon {
   display: inline-flex;
   align-items: center;
@@ -69,14 +77,10 @@
   border: 1px solid rgba(183, 224, 138, 0.35);
 }
 
-.social-icon svg {
+.social-icon-img {
   width: 18px;
   height: 18px;
-}
-
-.social-icon svg path {
-  fill: currentColor;
-  stroke: currentColor;
+  object-fit: contain;
 }
 
 .social-icon:hover {
