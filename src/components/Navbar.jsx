@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
 import './Navbar.css';
 
 function NavButton({ label, onClick }) {
@@ -12,6 +13,7 @@ function NavButton({ label, onClick }) {
 
 function Navbar({ isAuthenticated, user, onLogout }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [avatarLoadError, setAvatarLoadError] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const profileMenuRef = useRef(null);
@@ -25,6 +27,10 @@ function Navbar({ isAuthenticated, user, onLogout }) {
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    setAvatarLoadError(false);
+  }, [user?.profileImage]);
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -69,7 +75,13 @@ function Navbar({ isAuthenticated, user, onLogout }) {
     navigate('/');
   };
 
-  const userInitial = (user?.name || 'U').charAt(0).toUpperCase();
+  const getUserInitials = () => {
+    const names = user?.name.trim().split(' ') || [];
+    if (names.length >= 2) {
+      return (names[0][0] + names[names.length - 1][0]).toUpperCase();
+    }
+    return user?.name?.charAt(0).toUpperCase() || 'U';
+  };
 
 
   return (
@@ -87,6 +99,8 @@ function Navbar({ isAuthenticated, user, onLogout }) {
             />
           ))}
 
+          <ThemeToggle />
+
           {!isAuthenticated ? (
             <Link to="/login" className="nav-button signin-button">
               Sign In
@@ -95,11 +109,20 @@ function Navbar({ isAuthenticated, user, onLogout }) {
             <div className="profile-menu" ref={profileMenuRef}>
               <button
                 type="button"
-                className="profile-avatar"
+                className="navbar-profile-avatar"
                 onClick={() => setIsMenuOpen((prev) => !prev)}
                 aria-label="Open profile menu"
               >
-                {userInitial}
+                {user?.profileImage && !avatarLoadError ? (
+                  <img
+                    className="navbar-profile-avatar-img"
+                    src={user.profileImage}
+                    alt={user?.name || 'Profile'}
+                    onError={() => setAvatarLoadError(true)}
+                  />
+                ) : (
+                  <span className="navbar-profile-avatar-text">{getUserInitials()}</span>
+                )}
               </button>
 
               {isMenuOpen && (

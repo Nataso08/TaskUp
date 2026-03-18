@@ -1,10 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Profile.css'
 
-function Profile({ user }) {
+const DEFAULT_AVATAR =
+  'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300'
+
+function Profile({ user, onUserUpdate }) {
   const [selectedAvatar, setSelectedAvatar] = useState(
-    'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300'
+    user?.profileImage || DEFAULT_AVATAR
   )
+
+  useEffect(() => {
+    setSelectedAvatar(user?.profileImage || DEFAULT_AVATAR)
+  }, [user?.profileImage])
 
   const handleAvatarUpload = (event) => {
     const file = event.target.files?.[0]
@@ -16,6 +23,7 @@ function Profile({ user }) {
     reader.onload = () => {
       if (typeof reader.result === 'string') {
         setSelectedAvatar(reader.result)
+        onUserUpdate?.({ profileImage: reader.result })
       }
     }
     reader.readAsDataURL(file)

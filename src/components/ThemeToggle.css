@@ -1,0 +1,96 @@
+.theme-toggle-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70px;
+  height: 36px;
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 14px;
+  gap: 4px;
+}
+
+.theme-toggle-switch:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.theme-toggle-switch:active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle-switch.dark .toggle-slider {
+  left: calc(100% - 32px);
+}
+
+.toggle-label {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.theme-toggle-switch:hover .toggle-label {
+  opacity: 1;
+}
+
+.theme-toggle-switch.light .light-label {
+  opacity: 1;
+}
+
+.theme-toggle-switch.dark .dark-label {
+  opacity: 1;
+}
+
+.theme-toggle-switch.light .dark-label {
+  opacity: 0.6;
+}
+
+.theme-toggle-switch.dark .light-label {
+  opacity: 0.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .theme-toggle-switch {
+    width: 60px;
+    height: 32px;
+    gap: 2px;
+  }
+
+  .toggle-slider {
+    width: 26px;
+    height: 26px;
+  }
+
+  .theme-toggle-switch.dark .toggle-slider {
+    left: calc(100% - 28px);
+  }
+
+  .toggle-label {
+    font-size: 12px;
+  }
+}

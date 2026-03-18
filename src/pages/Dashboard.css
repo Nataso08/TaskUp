@@ -4,17 +4,19 @@
   margin: 0 auto;
   padding: 2.5rem 1.5rem 4rem;
   box-sizing: border-box;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .dashboard-header h1 {
   margin: 0;
-  color: #1f2b22;
+  color: var(--text-h);
   font-size: 2.3rem;
 }
 
 .dashboard-header p {
   margin: 0.7rem 0 0;
-  color: #526259;
+  color: var(--text);
   font-size: 1.05rem;
 }
 
@@ -26,42 +28,42 @@
 }
 
 .dashboard-card {
-  background: #fff;
-  border: 1px solid #dcead8;
+  background: var(--bg);
+  border: 1px solid var(--border);
   border-radius: 0.9rem;
   padding: 1.2rem;
-  box-shadow: 0 6px 16px rgba(36, 92, 39, 0.08);
+  box-shadow: var(--shadow);
 }
 
 .dashboard-card h3 {
   margin: 0;
-  color: #2c4130;
+  color: var(--text-h);
   font-size: 1rem;
 }
 
 .dashboard-value {
   margin: 0.65rem 0 0.35rem;
-  color: #2f7d32;
+  color: var(--accent);
   font-size: 1.85rem;
   font-weight: 800;
 }
 
 .dashboard-card span {
-  color: #65756b;
+  color: var(--text);
   font-size: 0.9rem;
 }
 
 .dashboard-activity {
   margin-top: 1.7rem;
-  background: #f7fbf5;
-  border: 1px solid #dcead8;
+  background: var(--bg);
+  border: 1px solid var(--border);
   border-radius: 0.9rem;
   padding: 1.2rem;
 }
 
 .dashboard-activity h2 {
   margin: 0;
-  color: #1f2b22;
+  color: var(--text-h);
   font-size: 1.35rem;
 }
 
@@ -72,7 +74,7 @@
 
 .dashboard-activity li {
   margin-bottom: 0.6rem;
-  color: #4a5a50;
+  color: var(--text);
   line-height: 1.5;
 }
 

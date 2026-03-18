@@ -10,6 +10,10 @@
   justify-content: center;
 }
 
+[data-theme="dark"] .hero-section {
+  background: linear-gradient(135deg, #1a4d1f 0%, #2d5f35 55%, #5a3d1f 100%);
+}
+
 .hero-content {
   max-width: 900px;
   margin: 0 auto;
@@ -122,7 +126,8 @@
 /* Features Section */
 .features-section {
   padding: 5rem 2rem;
-  background-color: #f3f8ee;
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 .section-header {
@@ -135,13 +140,13 @@
 
 .section-header h2 {
   font-size: 2.5rem;
-  color: #1e1e2e;
+  color: var(--text-h);
   margin-bottom: 1rem;
 }
 
 .section-header p {
   font-size: 1.1rem;
-  color: #666;
+  color: var(--text);
 }
 
 .features-grid {
@@ -153,17 +158,18 @@
 }
 
 .feature-card {
-  background: white;
+  background: var(--bg);
   padding: 2rem;
   border-radius: 0.75rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
   text-align: center;
   transition: all 0.3s ease;
 }
 
 .feature-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 24px rgba(47, 125, 50, 0.2);
+  box-shadow: 0 8px 24px rgba(170, 59, 255, 0.1);
 }
 
 .feature-icon {
@@ -173,12 +179,12 @@
 
 .feature-card h3 {
   font-size: 1.3rem;
-  color: #1e1e2e;
+  color: var(--text-h);
   margin-bottom: 1rem;
 }
 
 .feature-card p {
-  color: #666;
+  color: var(--text);
   line-height: 1.6;
   margin: 0;
 }
@@ -186,7 +192,8 @@
 /* Benefits Section */
 .benefits-section {
   padding: 5rem 2rem;
-  background: white;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .benefits-container {
@@ -206,7 +213,8 @@
   display: inline-flex;
   gap: 0.5rem;
   padding: 0.45rem;
-  background-color: #edf5e8;
+  background-color: var(--accent-bg);
+  border: 1px solid var(--accent-border);
   border-radius: 999px;
   margin-bottom: 0;
 }
@@ -214,7 +222,7 @@
 .how-switch-btn {
   border: none;
   background: transparent;
-  color: #38603d;
+  color: var(--text);
   font-weight: 700;
   font-size: 1.02rem;
   padding: 0.72rem 1.25rem;
@@ -224,7 +232,7 @@
 }
 
 .how-switch-btn.active {
-  background-color: #2f7d32;
+  background-color: var(--accent);
   color: white;
 }
 
@@ -235,9 +243,9 @@
 }
 
 .how-panel {
-  border: 1px solid #dbe8d5;
+  border: 1px solid var(--border);
   border-radius: 0.8rem;
-  background: #f9fcf7;
+  background: var(--bg);
   padding: 1.45rem;
   opacity: 0.62;
   position: relative;
@@ -254,19 +262,19 @@
   object-fit: cover;
   border-radius: 0.65rem;
   margin-bottom: 0.95rem;
-  border: 1px solid #d8e6d2;
+  border: 1px solid var(--border);
 }
 
 .how-panel.active {
   opacity: 1;
-  border-color: #2f7d32;
+  border-color: var(--accent);
   transform: translateY(-2px) scale(1.01);
-  box-shadow: 0 12px 24px rgba(47, 125, 50, 0.12);
+  box-shadow: 0 12px 24px var(--shadow);
 }
 
 .how-panel h4 {
   margin: 0 0 0.8rem;
-  color: #1f3f24;
+  color: var(--text-h);
   font-size: 1.35rem;
 }
 
@@ -277,7 +285,7 @@
 
 .how-panel li {
   margin-bottom: 0.8rem;
-  color: #4a5b4d;
+  color: var(--text);
   font-size: 1.08rem;
   line-height: 1.6;
 }
@@ -309,26 +317,27 @@
 }
 
 .checkmark {
-  color: #2f7d32;
+  color: var(--accent);
   font-size: 1.5rem;
   font-weight: bold;
   flex-shrink: 0;
 }
 
 .benefits-list h4 {
-  color: #1e1e2e;
+  color: var(--text-h);
   margin: 0 0 0.5rem;
 }
 
 .benefits-list p {
-  color: #666;
+  color: var(--text);
   margin: 0;
 }
 
 /* Pricing Section */
 .pricing-section {
   padding: 5rem 2rem;
-  background-color: #f8f9fa;
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 .pricing-cards {
@@ -340,10 +349,11 @@
 }
 
 .pricing-card {
-  background: white;
+  background: var(--bg);
   padding: 2.5rem;
   border-radius: 0.75rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
   text-align: center;
   position: relative;
   transition: all 0.3s ease;
@@ -351,11 +361,11 @@
 
 .pricing-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 24px rgba(170, 59, 255, 0.1);
 }
 
 .pricing-card.featured {
-  border: 2px solid #667eea;
+  border: 2px solid var(--accent);
   transform: scale(1.05);
 }
 
@@ -368,7 +378,7 @@
   top: -12px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #667eea;
+  background-color: var(--accent);
   color: white;
   padding: 0.4rem 1rem;
   border-radius: 2rem;
@@ -378,24 +388,24 @@
 
 .pricing-card h3 {
   font-size: 1.5rem;
-  color: #1e1e2e;
+  color: var(--text-h);
   margin-bottom: 1rem;
 }
 
 .price {
   font-size: 2.5rem;
-  color: #667eea;
+  color: var(--accent);
   font-weight: 700;
   margin: 1rem 0;
 }
 
 .price span {
   font-size: 1rem;
-  color: #666;
+  color: var(--text);
 }
 
 .description {
-  color: #666;
+  color: var(--text);
   margin-bottom: 1.5rem;
 }
 
@@ -403,14 +413,14 @@
   list-style: none;
   padding: 1.5rem 0;
   margin: 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   text-align: left;
 }
 
 .pricing-features li {
   padding: 0.75rem 0;
-  color: #666;
+  color: var(--text);
 }
 
 .pricing-card .btn {
@@ -424,6 +434,10 @@
   color: white;
   padding: 4rem 2rem;
   text-align: center;
+}
+
+[data-theme="dark"] .cta-section {
+  background: linear-gradient(135deg, #1a4d1f 0%, #2d5f35 55%, #5a3d1f 100%);
 }
 
 .cta-section h2 {
