@@ -1,8 +1,8 @@
 .job-card {
-  background: white;
+  background: var(--bg);
   border-radius: 0.7rem;
-  box-shadow: 0 2px 10px rgba(36, 92, 39, 0.1);
-  border: 1px solid #d8e6d2;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
   display: flex;
   flex-direction: row;
   padding: 0;
@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #eff8ea 0%, #e2f0da 100%);
+  background: var(--accent-bg);
   padding: 0;
   box-sizing: border-box;
 }
@@ -50,8 +50,8 @@
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   object-fit: cover;
-  border: 6px solid #ffffff;
-  box-shadow: 0 6px 18px rgba(36, 92, 39, 0.2);
+  border: 6px solid var(--bg);
+  box-shadow: 0 6px 18px rgba(170, 59, 255, 0.1);
 }
 
 .worker-main-info {
@@ -60,20 +60,20 @@
 
 .worker-main-info h3 {
   margin: 0;
-  color: #1f2b22;
+  color: var(--text-h);
   font-size: 1.05rem;
   line-height: 1.25;
 }
 
 .worker-role {
   margin: 0.2rem 0 0;
-  color: #4d6453;
+  color: var(--text);
   font-size: 0.82rem;
   font-weight: 600;
 }
 
 .worker-rating {
-  background-color: #003b95;
+  background-color: var(--accent);
   color: white;
   font-weight: 700;
   font-size: 0.85rem;
@@ -85,21 +85,21 @@
 
 .worker-presentation {
   margin: 0;
-  color: #4d5761;
+  color: var(--text);
   line-height: 1.4;
   font-size: 0.86rem;
 }
 
 .worker-area {
   margin: 0.55rem 0 0;
-  color: #294434;
+  color: var(--text-h);
   font-size: 0.84rem;
   font-weight: 600;
 }
 
 .worker-reviews {
   margin: 0.35rem 0 0;
-  color: #6b7681;
+  color: var(--text);
   font-size: 0.8rem;
 }
 
@@ -109,7 +109,7 @@
   margin-bottom: 0;
   border: none;
   border-radius: 0.45rem;
-  background-color: #0071c2;
+  background-color: var(--accent);
   color: white;
   font-weight: 700;
   font-size: 0.88rem;
@@ -119,7 +119,8 @@
 }
 
 .job-action-button:hover {
-  background-color: #005ea8;
+  background-color: var(--accent);
+  opacity: 0.8;
 }
 
 @media (max-width: 900px) {

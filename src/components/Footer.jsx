@@ -1,5 +1,7 @@
 import './Footer.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 
 function FooterLink({ label, href, onNavigate }) {
   return (
@@ -28,26 +30,44 @@ function Footer() {
   const currentYear = new Date().getFullYear();
   const navigate = useNavigate();
   const location = useLocation();
+  const { theme } = useContext(ThemeContext);
+
+  // Set icon color based on theme
+  const iconColor = theme === 'dark' ? '9ca3af' : '1d3a1f';
 
   const handleNavigate = (event, href) => {
     event.preventDefault();
 
     if (href.startsWith('#')) {
       if (location.pathname !== '/') {
-        navigate('/');
+        navigate('/' + href);
         setTimeout(() => {
-          const element = document.querySelector(href);
+          // Extract the hash without query params for querySelector
+          const hashOnly = href.split('?')[0];
+          const element = document.querySelector(hashOnly);
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
           }
-        }, 0);
+        }, 100);
         return;
       }
 
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      // Add a timestamp to force URL change even if hash is the same
+      const timestamp = Date.now();
+      const hrefWithTimestamp = href.includes('?') 
+        ? `${href}&t=${timestamp}`
+        : `${href}?t=${timestamp}`;
+      
+      navigate(hrefWithTimestamp);
+      
+      // Then scroll to the element
+      setTimeout(() => {
+        const hashOnly = href.split('?')[0];
+        const element = document.querySelector(hashOnly);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 0);
       return;
     }
 
@@ -78,7 +98,7 @@ function Footer() {
             <ul>
               <li><FooterLink label="Login" href="/login" onNavigate={handleNavigate} /></li>
               <li><FooterLink label="Find Workers" href="/explore" onNavigate={handleNavigate} /></li>
-              <li><FooterLink label="Contact For Work" href="#how-it-works" onNavigate={handleNavigate} /></li>
+              <li><FooterLink label="Contact For Work" href="#how-it-works?side=client" onNavigate={handleNavigate} /></li>
             </ul>
           </FooterSection>
 
@@ -93,13 +113,13 @@ function Footer() {
           <FooterSection title="Follow Us" className="follow-section">
             <div className="social-links">
               <a href="https://github.com" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <img className="social-icon-img" src="https://cdn.simpleicons.org/github/1d3a1f" alt="GitHub" />
+                <img className="social-icon-img" src={`https://cdn.simpleicons.org/github/${iconColor}`} alt="GitHub" />
               </a>
               <a href="https://x.com" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="X">
-                <img className="social-icon-img" src="https://cdn.simpleicons.org/x/1d3a1f" alt="X" />
+                <img className="social-icon-img" src={`https://cdn.simpleicons.org/x/${iconColor}`} alt="X" />
               </a>
               <a href="https://instagram.com" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <img className="social-icon-img" src="https://cdn.simpleicons.org/instagram/1d3a1f" alt="Instagram" />
+                <img className="social-icon-img" src={`https://cdn.simpleicons.org/instagram/${iconColor}`} alt="Instagram" />
               </a>
             </div>
           </FooterSection>

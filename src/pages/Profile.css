@@ -4,13 +4,15 @@
   margin: 0 auto;
   padding: 2.5rem 1.5rem 4rem;
   box-sizing: border-box;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .profile-card {
-  background: #fff;
-  border: 1px solid #dcead8;
+  background: var(--bg);
+  border: 1px solid var(--border);
   border-radius: 1rem;
-  box-shadow: 0 8px 24px rgba(36, 92, 39, 0.08);
+  box-shadow: var(--shadow);
   padding: 1.8rem;
 }
 
@@ -26,8 +28,8 @@
   height: 86px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #d7e7d1;
-  box-shadow: 0 4px 14px rgba(36, 92, 39, 0.2);
+  border: 3px solid var(--border);
+  box-shadow: 0 4px 14px rgba(170, 59, 255, 0.1);
 }
 
 .profile-avatar-wrapper {
@@ -44,7 +46,7 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: rgba(20, 47, 24, 0.55);
+  background: rgba(170, 59, 255, 0.4);
   color: white;
   font-size: 0.72rem;
   font-weight: 700;
@@ -66,12 +68,12 @@
 .profile-top h1 {
   margin: 0;
   font-size: 1.8rem;
-  color: #1f2b22;
+  color: var(--text-h);
 }
 
 .profile-top p {
   margin: 0.25rem 0 0;
-  color: #5c6b62;
+  color: var(--text);
 }
 
 .personal-info-block {
@@ -87,7 +89,7 @@
 
 .personal-info-grid p {
   margin: 0;
-  color: #4f5f55;
+  color: var(--text);
   line-height: 1.45;
 }
 
@@ -99,21 +101,21 @@
 }
 
 .profile-info-block {
-  border: 1px solid #e5efe1;
+  border: 1px solid var(--border);
   border-radius: 0.8rem;
-  background: #f8fcf6;
+  background: var(--bg);
   padding: 1.1rem;
 }
 
 .profile-info-block h3 {
   margin: 0;
-  color: #2c4130;
+  color: var(--text-h);
   font-size: 1rem;
 }
 
 .profile-info-block p {
   margin: 0.6rem 0 0;
-  color: #4f5f55;
+  color: var(--text);
   line-height: 1.5;
 }
 
@@ -125,11 +127,11 @@
 }
 
 .skill-list span {
-  background: #e8f4e2;
-  border: 1px solid #cfe4c7;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
   border-radius: 999px;
   padding: 0.35rem 0.7rem;
-  color: #2c5531;
+  color: var(--accent);
   font-size: 0.85rem;
   font-weight: 600;
 }
