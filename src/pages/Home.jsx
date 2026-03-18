@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
@@ -12,6 +13,8 @@ function Feature({ icon, title, description }) {
 }
 
 function Home() {
+  const [activeSide, setActiveSide] = useState('worker');
+
   const features = [
     {
       id: 1,
@@ -80,39 +83,61 @@ function Home() {
         </div>
       </section>
 
-      <section className="benefits-section">
-        <div className="benefits-container">
-          <div className="benefits-content">
-            <h2>How It Works</h2>
-            <ul className="benefits-list">
-              <li>
-                <span className="checkmark">✓</span>
-                <div>
-                  <h4>Sign Up</h4>
-                  <p>Create your account and set your location in a few simple steps.</p>
-                </div>
-              </li>
-              <li>
-                <span className="checkmark">✓</span>
-                <div>
-                  <h4>Explore Tasks</h4>
-                  <p>Browse nearby opportunities like gardening, cleanup and small manual jobs.</p>
-                </div>
-              </li>
-              <li>
-                <span className="checkmark">✓</span>
-                <div>
-                  <h4>Manage Everything</h4>
-                  <p>Use your dashboard to track accepted jobs and your activity.</p>
-                </div>
-              </li>
+      <section id="how-it-works" className="benefits-section">
+        <div className="section-header how-header">
+          <h2>How It Works</h2>
+          <div className="how-switch">
+            <button
+              type="button"
+              className={`how-switch-btn ${activeSide === 'worker' ? 'active' : ''}`}
+              onClick={() => setActiveSide('worker')}
+            >
+              I'm a young worker
+            </button>
+            <button
+              type="button"
+              className={`how-switch-btn ${activeSide === 'client' ? 'active' : ''}`}
+              onClick={() => setActiveSide('client')}
+            >
+              I'm searching workers
+            </button>
+          </div>
+        </div>
+
+        <div className={`benefits-container how-layout ${activeSide === 'worker' ? 'active-worker' : 'active-client'}`}>
+          <article
+            className={`how-panel worker-panel ${activeSide === 'worker' ? 'active' : ''}`}
+            onClick={() => setActiveSide('worker')}
+          >
+            <img
+              className="how-side-image"
+              src="https://images.pexels.com/photos/4505161/pexels-photo-4505161.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Young worker doing gardening activities"
+            />
+            <h4>I'm a young worker</h4>
+            <ul>
+              <li>Create your account in a few steps.</li>
+              <li>Publish your skills in your personal profile.</li>
+              <li>Create job offers for the services you can provide.</li>
             </ul>
-          </div>
-          <div className="benefits-image">
-            <div className="image-placeholder">
-              <span>🌿 TaskUp for local gardening jobs</span>
-            </div>
-          </div>
+          </article>
+
+          <article
+            className={`how-panel client-panel ${activeSide === 'client' ? 'active' : ''}`}
+            onClick={() => setActiveSide('client')}
+          >
+            <img
+              className="how-side-image"
+              src="https://images.pexels.com/photos/7709151/pexels-photo-7709151.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Client browsing and contacting workers online"
+            />
+            <h4>I'm searching workers</h4>
+            <ul>
+              <li>Log in and access your client area.</li>
+              <li>Search and find workers in your local area.</li>
+              <li>Contact them directly for the work you need.</li>
+            </ul>
+          </article>
         </div>
       </section>
 

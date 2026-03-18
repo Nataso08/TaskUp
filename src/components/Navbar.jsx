@@ -18,7 +18,7 @@ function Navbar({ isAuthenticated, user, onLogout }) {
 
   const navItems = [
     { id: 1, label: 'Home', action: 'home' },
-    { id: 2, label: 'How It Works', action: 'about' },
+    { id: 2, label: 'How It Works', action: 'how' },
     { id: 3, label: 'Explore', action: 'explore' }
   ];
 
@@ -55,12 +55,12 @@ function Navbar({ isAuthenticated, user, onLogout }) {
     if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
-        scrollToSection(action === 'home' ? '#home' : '#about');
+        scrollToSection(action === 'home' ? '#home' : '#how-it-works');
       }, 0);
       return;
     }
 
-    scrollToSection(action === 'home' ? '#home' : '#about');
+    scrollToSection(action === 'home' ? '#home' : '#how-it-works');
   };
 
   const handleLogout = () => {
