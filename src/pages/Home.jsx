@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Home.css';
 
@@ -12,9 +12,46 @@ function Feature({ icon, title, description }) {
   );
 }
 
+// Hook to trigger animations when elements scroll into view
+function useScrollAnimation() {
+  const elementRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in-view');
+            entry.target.classList.remove('animate-out-view');
+          } else {
+            entry.target.classList.remove('animate-in-view');
+            entry.target.classList.add('animate-out-view');
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -100px 0px' }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => {
+      if (elementRef.current) {
+        observer.unobserve(elementRef.current);
+      }
+    };
+  }, []);
+
+  return elementRef;
+}
+
 function Home({ isAuthenticated }) {
   const [activeSide, setActiveSide] = useState('worker');
   const location = useLocation();
+  const featuresRef = useScrollAnimation();
+  const benefitsRef = useScrollAnimation();
+  const ctaRef = useScrollAnimation();
 
   // Check URL hash for requested side (e.g., #how-it-works?side=client)
   useEffect(() => {
@@ -85,7 +122,7 @@ function Home({ isAuthenticated }) {
         </div>
       </section>
 
-      <section id="about" className="features-section">
+      <section id="about" className="features-section" ref={featuresRef}>
         <div className="section-header">
           <h2>Why TaskUp</h2>
           <p>A practical platform built for real, everyday outdoor and manual work.</p>
@@ -102,7 +139,7 @@ function Home({ isAuthenticated }) {
         </div>
       </section>
 
-      <section id="how-it-works" className="benefits-section">
+      <section id="how-it-works" className="benefits-section" ref={benefitsRef}>
         <div className="section-header how-header">
           <h2>How It Works</h2>
           <div className="how-switch">
@@ -160,7 +197,7 @@ function Home({ isAuthenticated }) {
         </div>
       </section>
 
-      <section id="explore" className="cta-section">
+      <section id="explore" className="cta-section" ref={ctaRef}>
         <h2>Ready to start?</h2>
         <p>Join TaskUp and discover local opportunities today.</p>
         <div className="hero-buttons">
