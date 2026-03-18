@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Login from './pages/Login'
+import Explore from './pages/Explore'
 
 function PlaceholderPage({ title, description }) {
   return (
@@ -81,7 +82,7 @@ function App() {
         />
         <Route
           path="/explore"
-          element={<PlaceholderPage title="Explore Jobs" description="Browse nearby opportunities and pick your next task." />}
+          element={<Explore />}
         />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

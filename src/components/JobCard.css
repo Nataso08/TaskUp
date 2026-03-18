@@ -1,0 +1,144 @@
+.job-card {
+  background: white;
+  border-radius: 0.7rem;
+  box-shadow: 0 2px 10px rgba(36, 92, 39, 0.1);
+  border: 1px solid #d8e6d2;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  text-align: left;
+  min-height: 360px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.job-card-left {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #eff8ea 0%, #e2f0da 100%);
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.job-card-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.9rem;
+  box-sizing: border-box;
+}
+
+.job-card-content {
+  width: 100%;
+  padding: 0;
+}
+
+.job-card-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0 0.9rem;
+  box-sizing: border-box;
+}
+
+.worker-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid #ffffff;
+  box-shadow: 0 6px 18px rgba(36, 92, 39, 0.2);
+}
+
+.worker-main-info {
+  flex: 1;
+}
+
+.worker-main-info h3 {
+  margin: 0;
+  color: #1f2b22;
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+.worker-role {
+  margin: 0.2rem 0 0;
+  color: #4d6453;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.worker-rating {
+  background-color: #003b95;
+  color: white;
+  font-weight: 700;
+  font-size: 0.85rem;
+  min-width: 34px;
+  text-align: center;
+  padding: 0.4rem 0.45rem;
+  border-radius: 0.35rem 0.35rem 0.35rem 0;
+}
+
+.worker-presentation {
+  margin: 0;
+  color: #4d5761;
+  line-height: 1.4;
+  font-size: 0.86rem;
+}
+
+.worker-area {
+  margin: 0.55rem 0 0;
+  color: #294434;
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.worker-reviews {
+  margin: 0.35rem 0 0;
+  color: #6b7681;
+  font-size: 0.8rem;
+}
+
+.job-action-button {
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 0;
+  border: none;
+  border-radius: 0.45rem;
+  background-color: #0071c2;
+  color: white;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.58rem 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.job-action-button:hover {
+  background-color: #005ea8;
+}
+
+@media (max-width: 900px) {
+  .job-card {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .job-card-left,
+  .job-card-right {
+    width: 100%;
+  }
+
+  .job-card-left {
+    min-height: 200px;
+    padding: 1.1rem;
+  }
+
+  .worker-image {
+    width: min(66%, 195px);
+  }
+}

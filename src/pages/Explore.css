@@ -1,0 +1,138 @@
+.explore-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  box-sizing: border-box;
+}
+
+.explore-header {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.explore-header h1 {
+  margin: 0 0 1rem;
+  color: #1f2b22;
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  line-height: 1.2;
+  display: inline-block;
+  background: linear-gradient(135deg, #1f6f2a 0%, #2f7d32 45%, #0071c2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.explore-header h1::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 64%;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2f7d32 0%, #0071c2 100%);
+}
+
+.explore-header p {
+  margin: 0.4rem 0 0;
+  color: #4f5d53;
+  font-size: 1.05rem;
+}
+
+.explore-toolbar {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.search-wrapper {
+  flex: 1;
+}
+
+.search-wrapper input {
+  width: 100%;
+  border: 1px solid #c8d8c1;
+  border-radius: 0.65rem;
+  padding: 0.82rem 0.95rem;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.search-wrapper input:focus {
+  border-color: #2f7d32;
+  box-shadow: 0 0 0 3px rgba(47, 125, 50, 0.15);
+}
+
+.filter-button {
+  border: none;
+  border-radius: 0.65rem;
+  background-color: #2f7d32;
+  color: white;
+  font-weight: 700;
+  padding: 0.82rem 1rem;
+  min-width: 96px;
+  cursor: pointer;
+}
+
+.filter-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 1.25rem;
+}
+
+.filter-chip {
+  border: 1px solid #c8d8c1;
+  border-radius: 999px;
+  background-color: #fff;
+  color: #2f4d34;
+  font-weight: 600;
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+}
+
+.filter-chip.active {
+  background-color: #edf8e7;
+  border-color: #2f7d32;
+  color: #245c27;
+}
+
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.empty-state {
+  color: #5c675f;
+  margin-top: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .explore-page {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .explore-header h1 {
+    font-size: 2rem;
+  }
+
+  .explore-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-button {
+    width: 100%;
+  }
+
+  .jobs-grid {
+    grid-template-columns: 1fr;
+  }
+}
