@@ -5,19 +5,8 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Explore from './pages/Explore'
-
-function PlaceholderPage({ title, description }) {
-  return (
-    <main className="home">
-      <section className="hero-section">
-        <div className="hero-content">
-          <h1 className="hero-title">{title}</h1>
-          <p className="hero-subtitle">{description}</p>
-        </div>
-      </section>
-    </main>
-  )
-}
+import Dashboard from './pages/Dashboard'
+import Profile from './pages/Profile'
 
 function ProtectedRoute({ isAuthenticated, children }) {
   if (!isAuthenticated) {
@@ -53,7 +42,7 @@ function App() {
         onLogout={handleLogout}
       />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home isAuthenticated={isAuthenticated} />} />
         <Route
           path="/login"
           element={<Login isAuthenticated={isAuthenticated} onAuthSuccess={handleAuthSuccess} />}
@@ -62,10 +51,7 @@ function App() {
           path="/dashboard"
           element={(
             <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <PlaceholderPage
-                title="Your Dashboard"
-                description="Track your accepted jobs and manage your activity from here."
-              />
+              <Dashboard user={user} />
             </ProtectedRoute>
           )}
         />
@@ -73,10 +59,7 @@ function App() {
           path="/profile"
           element={(
             <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <PlaceholderPage
-                title="Your Profile"
-                description="Update your personal info, skills and availability."
-              />
+              <Profile user={user} />
             </ProtectedRoute>
           )}
         />

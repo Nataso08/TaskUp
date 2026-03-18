@@ -12,8 +12,10 @@ function Feature({ icon, title, description }) {
   );
 }
 
-function Home() {
+function Home({ isAuthenticated }) {
   const [activeSide, setActiveSide] = useState('worker');
+  const hasStoredSession = Boolean(localStorage.getItem('taskup_user'));
+  const showDashboardButton = isAuthenticated || hasStoredSession;
 
   const features = [
     {
@@ -46,7 +48,11 @@ function Home() {
             gardening jobs, practical tasks, and opportunities to earn while helping their local community.
           </p>
           <div className="hero-buttons">
-            <Link className="btn btn-primary" to="/login">Sign In</Link>
+            {showDashboardButton ? (
+              <Link className="btn btn-primary" to="/dashboard">Dashboard</Link>
+            ) : (
+              <Link className="btn btn-primary" to="/login">Sign In</Link>
+            )}
             <Link className="btn btn-secondary" to="/explore">Explore Jobs</Link>
           </div>
           <div className="hero-stats">
@@ -145,7 +151,11 @@ function Home() {
         <h2>Ready to start?</h2>
         <p>Join TaskUp and discover local opportunities today.</p>
         <div className="hero-buttons">
-          <Link className="btn btn-large" to="/login">Sign In</Link>
+          {showDashboardButton ? (
+            <Link className="btn btn-large" to="/dashboard">Dashboard</Link>
+          ) : (
+            <Link className="btn btn-large" to="/login">Sign In</Link>
+          )}
           <Link className="btn btn-secondary" to="/explore">Explore</Link>
         </div>
       </section>

@@ -1,0 +1,149 @@
+.profile-page {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  box-sizing: border-box;
+}
+
+.profile-card {
+  background: #fff;
+  border: 1px solid #dcead8;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(36, 92, 39, 0.08);
+  padding: 1.8rem;
+}
+
+.profile-top {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.6rem;
+}
+
+.profile-avatar {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #d7e7d1;
+  box-shadow: 0 4px 14px rgba(36, 92, 39, 0.2);
+}
+
+.profile-avatar-wrapper {
+  position: relative;
+}
+
+.profile-avatar-trigger {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.profile-avatar-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(20, 47, 24, 0.55);
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.profile-avatar-trigger:hover .profile-avatar-overlay {
+  opacity: 1;
+}
+
+.profile-image-input {
+  display: none;
+}
+
+.profile-top h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #1f2b22;
+}
+
+.profile-top p {
+  margin: 0.25rem 0 0;
+  color: #5c6b62;
+}
+
+.personal-info-block {
+  margin-bottom: 1.35rem;
+}
+
+.personal-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem 1.2rem;
+  margin-top: 0.8rem;
+}
+
+.personal-info-grid p {
+  margin: 0;
+  color: #4f5f55;
+  line-height: 1.45;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.35rem;
+  margin-top: 1.35rem;
+}
+
+.profile-info-block {
+  border: 1px solid #e5efe1;
+  border-radius: 0.8rem;
+  background: #f8fcf6;
+  padding: 1.1rem;
+}
+
+.profile-info-block h3 {
+  margin: 0;
+  color: #2c4130;
+  font-size: 1rem;
+}
+
+.profile-info-block p {
+  margin: 0.6rem 0 0;
+  color: #4f5f55;
+  line-height: 1.5;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.7rem;
+}
+
+.skill-list span {
+  background: #e8f4e2;
+  border: 1px solid #cfe4c7;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  color: #2c5531;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .profile-card {
+    padding: 1.3rem;
+  }
+
+  .personal-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}
