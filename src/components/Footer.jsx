@@ -34,20 +34,34 @@ function Footer() {
 
     if (href.startsWith('#')) {
       if (location.pathname !== '/') {
-        navigate('/');
+        navigate('/' + href);
         setTimeout(() => {
-          const element = document.querySelector(href);
+          // Extract the hash without query params for querySelector
+          const hashOnly = href.split('?')[0];
+          const element = document.querySelector(hashOnly);
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
           }
-        }, 0);
+        }, 100);
         return;
       }
 
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      // Add a timestamp to force URL change even if hash is the same
+      const timestamp = Date.now();
+      const hrefWithTimestamp = href.includes('?') 
+        ? `${href}&t=${timestamp}`
+        : `${href}?t=${timestamp}`;
+      
+      navigate(hrefWithTimestamp);
+      
+      // Then scroll to the element
+      setTimeout(() => {
+        const hashOnly = href.split('?')[0];
+        const element = document.querySelector(hashOnly);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 0);
       return;
     }
 
@@ -78,7 +92,7 @@ function Footer() {
             <ul>
               <li><FooterLink label="Login" href="/login" onNavigate={handleNavigate} /></li>
               <li><FooterLink label="Find Workers" href="/explore" onNavigate={handleNavigate} /></li>
-              <li><FooterLink label="Contact For Work" href="#how-it-works" onNavigate={handleNavigate} /></li>
+              <li><FooterLink label="Contact For Work" href="#how-it-works?side=client" onNavigate={handleNavigate} /></li>
             </ul>
           </FooterSection>
 

@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Home.css';
 
 function Feature({ icon, title, description }) {
@@ -14,6 +14,19 @@ function Feature({ icon, title, description }) {
 
 function Home({ isAuthenticated }) {
   const [activeSide, setActiveSide] = useState('worker');
+  const location = useLocation();
+
+  // Check URL hash for requested side (e.g., #how-it-works?side=client)
+  useEffect(() => {
+    const hash = location.hash;
+    if (hash.includes('how-it-works')) {
+      const params = new URLSearchParams(hash.split('?')[1] || '');
+      const requestedSide = params.get('side');
+      if (requestedSide === 'client' || requestedSide === 'worker') {
+        setActiveSide(requestedSide);
+      }
+    }
+  }, [location.hash]);
   const hasStoredSession = Boolean(localStorage.getItem('taskup_user'));
   const showDashboardButton = isAuthenticated || hasStoredSession;
 
