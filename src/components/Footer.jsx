@@ -1,5 +1,7 @@
 import './Footer.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 
 function FooterLink({ label, href, onNavigate }) {
   return (
@@ -28,6 +30,10 @@ function Footer() {
   const currentYear = new Date().getFullYear();
   const navigate = useNavigate();
   const location = useLocation();
+  const { theme } = useContext(ThemeContext);
+
+  // Set icon color based on theme
+  const iconColor = theme === 'dark' ? '9ca3af' : '1d3a1f';
 
   const handleNavigate = (event, href) => {
     event.preventDefault();
@@ -107,13 +113,13 @@ function Footer() {
           <FooterSection title="Follow Us" className="follow-section">
             <div className="social-links">
               <a href="https://github.com" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <img className="social-icon-img" src="https://cdn.simpleicons.org/github/1d3a1f" alt="GitHub" />
+                <img className="social-icon-img" src={`https://cdn.simpleicons.org/github/${iconColor}`} alt="GitHub" />
               </a>
               <a href="https://x.com" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="X">
-                <img className="social-icon-img" src="https://cdn.simpleicons.org/x/1d3a1f" alt="X" />
+                <img className="social-icon-img" src={`https://cdn.simpleicons.org/x/${iconColor}`} alt="X" />
               </a>
               <a href="https://instagram.com" className="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <img className="social-icon-img" src="https://cdn.simpleicons.org/instagram/1d3a1f" alt="Instagram" />
+                <img className="social-icon-img" src={`https://cdn.simpleicons.org/instagram/${iconColor}`} alt="Instagram" />
               </a>
             </div>
           </FooterSection>
