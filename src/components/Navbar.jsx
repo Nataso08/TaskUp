@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
+import logo from '../assets/logo2.svg';
 import './Navbar.css';
 
 function NavButton({ label, onClick }) {
@@ -20,8 +21,9 @@ function Navbar({ isAuthenticated, user, onLogout }) {
 
   const navItems = [
     { id: 1, label: 'Home', action: 'home' },
-    { id: 2, label: 'How It Works', action: 'how' },
-    { id: 3, label: 'Explore', action: 'explore' }
+    { id: 2, label: 'Why TaskUp', action: 'about' },
+    { id: 3, label: 'How It Works', action: 'how' },
+    { id: 4, label: 'Explore', action: 'explore' }
   ];
 
   useEffect(() => {
@@ -58,15 +60,18 @@ function Navbar({ isAuthenticated, user, onLogout }) {
       return;
     }
 
+    const sectionSelector = action === 'home'
+      ? '#home'
+      : action === 'about'
+        ? '#about'
+        : '#how-it-works';
+
     if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        scrollToSection(action === 'home' ? '#home' : '#how-it-works');
-      }, 0);
+      navigate(`/${sectionSelector}`);
       return;
     }
 
-    scrollToSection(action === 'home' ? '#home' : '#how-it-works');
+    scrollToSection(sectionSelector);
   };
 
   const handleLogout = () => {
@@ -88,7 +93,7 @@ function Navbar({ isAuthenticated, user, onLogout }) {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-brand">
-          <h1>TaskUp</h1>
+          <img src={logo} alt="TaskUp" className="navbar-logo" />
         </div>
         <div className="navbar-menu">
           {navItems.map((item) => (

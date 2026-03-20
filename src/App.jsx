@@ -10,7 +10,11 @@ import Dashboard from './pages/Dashboard'
 import Profile from './pages/Profile'
 
 const DEFAULT_PROFILE_IMAGE =
+  'https://images.pexels.com/photos/7841672/pexels-photo-7841672.jpeg?auto=compress&cs=tinysrgb&w=300'
+
+const LEGACY_DEFAULT_PROFILE_IMAGES = [
   'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300'
+]
 
 // Deploy test only: force authenticated session by default.
 const FORCE_LOGGED_FOR_DEPLOY_TEST = true
@@ -26,9 +30,13 @@ function normalizeUser(userData) {
     return null
   }
 
+  const hasLegacyDefaultImage = LEGACY_DEFAULT_PROFILE_IMAGES.includes(userData.profileImage)
+
   return {
     ...userData,
-    profileImage: userData.profileImage || DEFAULT_PROFILE_IMAGE
+    profileImage: !userData.profileImage || hasLegacyDefaultImage
+      ? DEFAULT_PROFILE_IMAGE
+      : userData.profileImage
   }
 }
 
