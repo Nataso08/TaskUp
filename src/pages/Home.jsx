@@ -142,7 +142,7 @@ function Home({ isAuthenticated }) {
       <section id="how-it-works" className="benefits-section" ref={benefitsRef}>
         <div className="section-header how-header">
           <h2>How It Works</h2>
-          <div className="how-switch">
+          <div className={`how-switch ${activeSide === 'client' ? 'client-active' : ''}`}>
             <button
               type="button"
               className={`how-switch-btn ${activeSide === 'worker' ? 'active' : ''}`}
