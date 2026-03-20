@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
+import logo from '../assets/logo2.svg';
 import './Navbar.css';
 
 function NavButton({ label, onClick }) {
@@ -88,7 +89,7 @@ function Navbar({ isAuthenticated, user, onLogout }) {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-brand">
-          <h1>TaskUp</h1>
+          <img src={logo} alt="TaskUp" className="navbar-logo" />
         </div>
         <div className="navbar-menu">
           {navItems.map((item) => (

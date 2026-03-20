@@ -1,6 +1,6 @@
 .navbar {
   background: linear-gradient(135deg, #245c27 0%, #2f7d32 65%, #5f7a39 100%);
-  padding: 1rem 0;
+  padding: 0.25rem 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
@@ -27,6 +27,12 @@
   font-weight: 700;
   color: white;
   margin: 0;
+}
+
+.navbar-logo {
+  height: 96px;
+  width: auto;
+  display: block;
 }
 
 .navbar-menu {
@@ -157,7 +163,7 @@
   .navbar-container {
     flex-direction: column;
     gap: 1rem;
-    padding: 1rem;
+    padding: 0.35rem 1rem;
   }
 
   .navbar-menu {
@@ -176,14 +182,14 @@
     padding: 0.4rem 0.8rem;
   }
 
-  .navbar-brand h1 {
-    font-size: 1.5rem;
+  .navbar-logo {
+    height: 81px;
   }
 }
 
 @media (max-width: 480px) {
-  .navbar-brand h1 {
-    font-size: 1.2rem;
+  .navbar-logo {
+    height: 70px;
   }
 
   .navbar-menu {
