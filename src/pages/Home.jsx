@@ -56,8 +56,23 @@ function Home({ isAuthenticated }) {
   // Check URL hash for requested side (e.g., #how-it-works?side=client)
   useEffect(() => {
     const hash = location.hash;
-    if (hash.includes('how-it-works')) {
-      const params = new URLSearchParams(hash.split('?')[1] || '');
+    if (!hash) {
+      return;
+    }
+
+    const [targetHash, query = ''] = hash.split('?');
+
+    if (targetHash) {
+      const targetElement = document.querySelector(targetHash);
+      if (targetElement) {
+        requestAnimationFrame(() => {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+    }
+
+    if (targetHash === '#how-it-works') {
+      const params = new URLSearchParams(query);
       const requestedSide = params.get('side');
       if (requestedSide === 'client' || requestedSide === 'worker') {
         setActiveSide(requestedSide);

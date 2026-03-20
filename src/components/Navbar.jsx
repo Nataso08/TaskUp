@@ -21,8 +21,9 @@ function Navbar({ isAuthenticated, user, onLogout }) {
 
   const navItems = [
     { id: 1, label: 'Home', action: 'home' },
-    { id: 2, label: 'How It Works', action: 'how' },
-    { id: 3, label: 'Explore', action: 'explore' }
+    { id: 2, label: 'Why TaskUp', action: 'about' },
+    { id: 3, label: 'How It Works', action: 'how' },
+    { id: 4, label: 'Explore', action: 'explore' }
   ];
 
   useEffect(() => {
@@ -59,15 +60,18 @@ function Navbar({ isAuthenticated, user, onLogout }) {
       return;
     }
 
+    const sectionSelector = action === 'home'
+      ? '#home'
+      : action === 'about'
+        ? '#about'
+        : '#how-it-works';
+
     if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        scrollToSection(action === 'home' ? '#home' : '#how-it-works');
-      }, 0);
+      navigate(`/${sectionSelector}`);
       return;
     }
 
-    scrollToSection(action === 'home' ? '#home' : '#how-it-works');
+    scrollToSection(sectionSelector);
   };
 
   const handleLogout = () => {
