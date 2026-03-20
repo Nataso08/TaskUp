@@ -20,7 +20,7 @@ const LEGACY_DEFAULT_PROFILE_IMAGES = [
 const FORCE_LOGGED_FOR_DEPLOY_TEST = true
 
 const DEPLOY_TEST_USER = {
-  name: 'Deploy Tester',
+  name: 'TaskUp User',
   email: 'deploy-test@taskup.local',
   profileImage: DEFAULT_PROFILE_IMAGE
 }
