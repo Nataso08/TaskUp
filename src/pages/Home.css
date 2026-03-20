@@ -269,7 +269,9 @@
 
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(135deg, #2f7d32 0%, #4f9a4d 55%, #8b5a2b 100%);
+  background:
+    linear-gradient(135deg, rgba(21, 62, 25, 0.65) 0%, rgba(33, 81, 41, 0.55) 55%, rgba(72, 45, 20, 0.55) 100%),
+    url('../assets/giardino_home.jpg') center/cover no-repeat;
   color: white;
   padding: 1.5rem 2rem 2rem 2rem;
   text-align: center;
@@ -294,7 +296,9 @@
 }
 
 [data-theme="dark"] .hero-section {
-  background: linear-gradient(135deg, #1a4d1f 0%, #2d5f35 55%, #5a3d1f 100%);
+  background:
+    linear-gradient(135deg, rgba(8, 24, 10, 0.78) 0%, rgba(16, 37, 22, 0.75) 55%, rgba(38, 25, 12, 0.72) 100%),
+    url('../assets/giardino_home.jpg') center/cover no-repeat;
 }
 
 [data-theme="dark"] .hero-section::after {
