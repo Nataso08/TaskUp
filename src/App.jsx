@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react'
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { useEffect, useMemo, useState } from 'react'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -46,6 +46,19 @@ function ProtectedRoute({ isAuthenticated, children }) {
   }
 
   return children
+}
+
+function ScrollToTopOnPageChange() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    const pagesWithForcedTop = ['/explore', '/profile', '/dashboard']
+    if (pagesWithForcedTop.includes(pathname)) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    }
+  }, [pathname])
+
+  return null
 }
 
 function App() {
@@ -99,6 +112,7 @@ function App() {
   return (
     <ThemeProvider>
       <>
+        <ScrollToTopOnPageChange />
         <Navbar
           isAuthenticated={isAuthenticated}
           user={user}
