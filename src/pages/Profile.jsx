@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './Profile.css'
 
 const DEFAULT_AVATAR =
-  'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300'
+  'https://images.pexels.com/photos/7841672/pexels-photo-7841672.jpeg?auto=compress&cs=tinysrgb&w=300'
 
 function Profile({ user, onUserUpdate }) {
   const [selectedAvatar, setSelectedAvatar] = useState(

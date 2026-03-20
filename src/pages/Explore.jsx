@@ -12,7 +12,7 @@ function Explore() {
       presentation: 'I handle quick garden cleanup, leaf collection and basic outdoor maintenance with care.',
       rating: '9.1',
       reviews: 48,
-      profileImage: 'https://images.pexels.com/photos/8961067/pexels-photo-8961067.jpeg?auto=compress&cs=tinysrgb&w=600',
+      profileImage: 'https://images.pexels.com/photos/4505161/pexels-photo-4505161.jpeg?auto=compress&cs=tinysrgb&w=600',
       category: 'Gardening'
     },
     {
@@ -23,7 +23,7 @@ function Explore() {
       presentation: 'Reliable for mowing, edge finishing and seasonal garden tidying in residential spaces.',
       rating: '8.7',
       reviews: 32,
-      profileImage: 'https://images.pexels.com/photos/3771069/pexels-photo-3771069.jpeg?auto=compress&cs=tinysrgb&w=600',
+      profileImage: 'https://images.pexels.com/photos/7841828/pexels-photo-7841828.jpeg?auto=compress&cs=tinysrgb&w=600',
       category: 'Gardening'
     },
     {
@@ -34,7 +34,7 @@ function Explore() {
       presentation: 'I support furniture setup, small lifting tasks and practical outdoor organization jobs.',
       rating: '8.9',
       reviews: 27,
-      profileImage: 'https://images.pexels.com/photos/8867434/pexels-photo-8867434.jpeg?auto=compress&cs=tinysrgb&w=600',
+      profileImage: 'https://images.pexels.com/photos/7841672/pexels-photo-7841672.jpeg?auto=compress&cs=tinysrgb&w=600',
       category: 'Manual Work'
     },
     {
@@ -45,7 +45,7 @@ function Explore() {
       presentation: 'Plant watering and balcony care with attention to routine, timing and plant health.',
       rating: '9.4',
       reviews: 55,
-      profileImage: 'https://images.pexels.com/photos/7841828/pexels-photo-7841828.jpeg?auto=compress&cs=tinysrgb&w=600',
+      profileImage: 'https://images.pexels.com/photos/7709151/pexels-photo-7709151.jpeg?auto=compress&cs=tinysrgb&w=600',
       category: 'Gardening'
     },
     {
@@ -56,7 +56,7 @@ function Explore() {
       presentation: 'I organize tools, storage shelves and work areas to keep spaces clean and functional.',
       rating: '8.5',
       reviews: 21,
-      profileImage: 'https://images.pexels.com/photos/8867474/pexels-photo-8867474.jpeg?auto=compress&cs=tinysrgb&w=600',
+      profileImage: 'https://images.pexels.com/photos/8961067/pexels-photo-8961067.jpeg?auto=compress&cs=tinysrgb&w=600',
       category: 'Manual Work'
     },
     {
@@ -67,7 +67,7 @@ function Explore() {
       presentation: 'Available for pruning support, cleanup and simple weekly garden maintenance sessions.',
       rating: '9.0',
       reviews: 39,
-      profileImage: 'https://images.pexels.com/photos/7841672/pexels-photo-7841672.jpeg?auto=compress&cs=tinysrgb&w=600',
+      profileImage: 'https://images.pexels.com/photos/3771069/pexels-photo-3771069.jpeg?auto=compress&cs=tinysrgb&w=600',
       category: 'Gardening'
     }
   ];
